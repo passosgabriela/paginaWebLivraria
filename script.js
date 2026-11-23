@@ -167,13 +167,16 @@ let sortOption = "padrao";
 let appliedCoupon = null;
 
 // Capa fallback SVG caso falte internet ao carregar Open Library
-const fallbackCover = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
-  `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="420" viewBox="0 0 300 420">
-    <rect width="300" height="420" fill="#D7CCC8"/>
-    <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" fill="#3E2723" font-family="sans-serif" font-size="20" font-weight="bold">Livraria EntreLinhas</text>
-    <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" fill="#6D4C41" font-family="sans-serif" font-size="14">Capa Indisponível</text>
-  </svg>`
-);
+function handleCoverError(imgElement) {
+  imgElement.onerror = null;
+  imgElement.src = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="420" viewBox="0 0 300 420">
+      <rect width="300" height="420" fill="#D7CCC8"/>
+      <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" fill="#3E2723" font-family="sans-serif" font-size="20" font-weight="bold">Livraria EntreLinhas</text>
+      <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle" fill="#6D4C41" font-family="sans-serif" font-size="14">Capa do Livro</text>
+    </svg>`
+  );
+}
 
 const formatPrice = (price) => `R$ ${price.toFixed(2).replace('.', ',')}`;
 
@@ -189,7 +192,7 @@ function createBookCard(book) {
     </button>
     <div>
       <div class="book-cover-link" onclick="openBookDetails(${book.id})">
-        <img src="${book.cover}" alt="Capa do livro ${book.title}, de ${book.author}" onerror="this.src='${fallbackCover}'">
+        <img src="${book.cover}" alt="Capa do livro ${book.title}, de ${book.author}" onerror="handleCoverError(this)">
       </div>
       <div class="category-tag">${book.category}</div>
       <h3 onclick="openBookDetails(${book.id})">${book.title}</h3>
@@ -273,7 +276,7 @@ function openBookDetails(id) {
 
   const detailContainer = document.getElementById('book-detail-content');
   detailContainer.innerHTML = `
-    <img src="${book.cover}" alt="Capa ampliada do livro ${book.title}" onerror="this.src='${fallbackCover}'">
+    <img src="${book.cover}" alt="Capa ampliada do livro ${book.title}" onerror="handleCoverError(this)">
     <div>
       <div class="category-tag">${book.category}</div>
       <h2 id="detail-title">${book.title}</h2>

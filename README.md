@@ -19,13 +19,21 @@ Projeto final da disciplina **Desenvolvimento Web 2 (IFSP)** — site responsivo
 - **Carrinho de Compras:** Adição, remoção, alteração de quantidade, cálculo automático de subtotal/total, contador no menu e persistência no `localStorage`.
 - **Sobre / Contato:** História da livraria, endereço e formulário com validação completa exibida diretamente na tela.
 
-### Extras Implementados (+1,0 ponto)
-1. **Modo Claro/Escuro persistido no `localStorage`** (+0,25)
-2. **Lista de Desejos (Favoritos)** com botão de coração nos cards e filtro dedicado (+0,25)
-3. **Ordenação do Catálogo** por menor preço, maior preço e título (A–Z) (+0,25)
-4. **Cupom de Desconto no Carrinho** (`LIVRO10` aplicando 10% de desconto) (+0,25)
+### Extras Implementados 
+1. **Modo Claro/Escuro persistido no `localStorage`**
+2. **Lista de Desejos (Favoritos)** com botão de coração nos cards e filtro dedicado
+3. **Ordenação do Catálogo** por menor preço, maior preço e título (A–Z)
+4. **Cupom de Desconto no Carrinho** (`LIVRO10` aplicando 10% de desconto)
 
 ## Como Rodar Localmente
 1. Clone este repositório:
    ```bash
    git clone https://github.com/passosgabriela/paginaWebLivraria.git
+
+   ## Capturas de Tela
+
+### Versão Desktop
+![Tela inicial e catálogo no Desktop](imagens/PrintDesktop.png)
+
+### Versão Mobile
+![Layout responsivo no Celular](imagens/PrintMobile.png)
