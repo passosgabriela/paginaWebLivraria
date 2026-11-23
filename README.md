@@ -30,7 +30,7 @@ Projeto final da disciplina **Desenvolvimento Web 2 (IFSP)** — site responsivo
    ```bash
    git clone https://github.com/passosgabriela/paginaWebLivraria.git
 
-   ## Capturas de Tela
+## Capturas de Tela
 
 ### Versão Desktop
 ![Tela inicial e catálogo no Desktop](imagens/PrintDesktop.png)
